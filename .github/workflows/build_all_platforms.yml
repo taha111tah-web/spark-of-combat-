@@ -1,0 +1,42 @@
+name: Build Spark of Combat - Android & iOS
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Build Unity Android APK
+        uses: game-ci/unity-builder@v2
+        with:
+          targetPlatform: Android
+
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: SparkOfCombat-Android
+          path: build/Android/
+
+  build-ios:
+    name: Build iOS IPA
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Build Unity iOS
+        uses: game-ci/unity-builder@v2
+        with:
+          targetPlatform: iOS
+
+      - name: Upload iOS Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: SparkOfCombat-iOS
+          path: build/iOS/
