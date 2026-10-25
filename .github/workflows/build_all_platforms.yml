@@ -1,4 +1,4 @@
-  name: Build Spark of Combat - Android & iOS
+name: Build Spark of Combat - Android & iOS
 
 on:
   push:
@@ -16,4 +16,4 @@ jobs:
       - name: Check Files
         run: |
           echo "تم فحص ملفات وسكريبتات لعبة Spark of Combat بنجاح!"
-          ls -R Assets/SparkOfCombat/Scripts      
+          ls -R Assets/SparkOfCombat/Scripts
